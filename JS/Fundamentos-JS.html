@@ -1,0 +1,1010 @@
+<!DOCTYPE html><html><head>
+      <title>Fundamentos-JS</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:///c:\Users\Armando\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.6.7\node_modules\@shd101wyy\mume\dependencies\katex\katex.min.css">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <style>
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p,html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div{display:inline}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  300px/2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}@font-face {
+  font-family: "Material Icons";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Material Icons"), local("MaterialIcons-Regular"), url("data:application/x-font-woff;charset=utf-8;base64,d09GRgABAAAAAAfIAAsAAAAADDAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAABHU1VCAAABCAAAADMAAABCsP6z7U9TLzIAAAE8AAAARAAAAFZW7kosY21hcAAAAYAAAADTAAACjtP6ytBnbHlmAAACVAAAAxgAAAQ4zRtvlGhlYWQAAAVsAAAALwAAADYRwZsnaGhlYQAABZwAAAAcAAAAJAeKAzxobXR4AAAFuAAAABIAAAA8OGQAAGxvY2EAAAXMAAAAIAAAACAG5AfwbWF4cAAABewAAAAfAAAAIAEfAERuYW1lAAAGDAAAAVcAAAKFkAhoC3Bvc3QAAAdkAAAAYgAAAK2vz7wkeJxjYGRgYOBikGPQYWB0cfMJYeBgYGGAAJAMY05meiJQDMoDyrGAaQ4gZoOIAgCKIwNPAHicY2BkPsQ4gYGVgYOpk+kMAwNDP4RmfM1gxMjBwMDEwMrMgBUEpLmmMDgwVLy4xKzzX4chhrmK4QpQmBEkBwAZygyweJzFkr0NwjAQhZ+TEP6CRUfHBEwRUWaQTICyQbpMwRCskA5RUIONxG0RnnNpKAIV4qzPku/8c353ACYAYrIjCWCuMAh2ptf0/hiL3p/gyPUWa3osqlt0L1zu9r71z8dGrJRykFoauXQd932Lj5vhG+MjxGeYI8MKETObMpslf5EyP8tg+vHun5r539PvlvXzaVhRFVQDTPEWKVQR90KhnnC5Ek67vUKN4VuFasM/ldARj43CCkCsEjpJSoVVgRyU0GVSK6wUpFFCx8lFgX0BiXpRPQB4nE2TTWjcRhTH3xttpDhxN7uxPlp3u/FK7moRPixafRijNosxSw/LUsIwNcaEHPZggo/FmEKMCKWU4kNOOftQSlhE8alnH0Ix9BqWnHooPRrTQ0+mnu2bXTu2pPdGM9LM/6c3fwECTM4gBBMYQNqxzLrZAjqYSlqu2TAHZQA0/DQJH6FtzqGDnvbt4Ggwvzw/nL8EfH8kW0fsuRqhgWXZnY7M1picaUL7Du5BHeDzMIl83dAt016wH1qmvtSMo5R6YRJHTR//FXsff/nj/tc/5K9P5d+nP22+fFK5u7v3K39SW3y+OtDKO3L85vD09PD9z5X17a2N1g4tqk01RlqX7gyoEmnsWQtVr4rtZMmukEaFBZxzefkCn11cyKMLZgshRwgTYNoLNXCBz2ja7HvZG7hDpPSNfoo5vs0knK/9hb+rNpu+8kHPgk/Ao4kK3tWtTpSEtvkA9c+wE6UaUdwieNkaHg55tBEtRiEPw1s0+FtrtTcc9two2lhMknV7PZF/cs6+uUFTmpTGbEx7sQCPSLOttHS3GRltqp7SNzVSKzl6aWnZT/CX5k6/v9N3Hh8fHBwffJVjhrC6OgH5dkIt/tPsq+d/PD5Qz7G7efzq1THFjdZVPe/N6ulQ3JnDWSE5junsFsVIiFwL/htf1S5gJ3BfOcUxfHKLnzqpFpyfZ9cX+/5WB6a+Y0pHpzkNrYNVDwMsikK+y7WuLCRg/oFHkA8VT3rDg5ZnU6ktzzINymV0m74Xd5pfIGXyFeVEQSShkzqG7TBBa2OxVRKitLXv7h3uuftXnXq7lz2tZ/WnWa9dx9dCjDhHzmuVQATlmljr9dZErUydSo2Hbi/b1vXtrOeGCk2/8s3ZlO8+ueJT8BVlw5pGw2oYccdSiHHqx0RlabHqdNR9jAETl6PreJcPBnnfpTLnOQ8C3OV8AmQGzouV1iZdeb5SSIoVc8W8/kcDtksUH5FrU6/aqBqNWcMEzxG4DAQ14qRQhi9mWU0rzepKezbjfgCwQKxVYq5ajRgpRqy45CqwkJydcEkbTkvRz8P5/2ZpDTN4nGNgZGBgAOKb6v+/xvPbfGXgZmEAgeuB2kkI+v8bFgbmKiCXg4EJJAoAPyAKhQB4nGNgZGBg1vmvwxDDwgACQJKRARXwAwAzZQHQeJxjYQCCFAYGFgbSMQAcWACdAAAAAAAAAAwALgBgAIQAmADSAQgBIgE8AVABoAHeAfwCHHicY2BkYGDgZ7BgYGMAASYg5gJCBob/YD4DAA/hAWQAeJxlkbtuwkAURMc88gApQomUJoq0TdIQzEOpUDokKCNR0BuzBiO/tF6QSJcPyHflE9Klyyekz2CuG8cr7547M3d9JQO4xjccnJ57vid2cMHqxDWc40G4Tv1JuEF+Fm6ijRfhM+oz4Ra6eBVu4wZvvMFpXLIa40PYQQefwjVc4Uu4Tv1HuEH+FW7i1mkKn6Hj3Am3sHC6wm08Ou8tpSZGe1av1PKggjSxPd8zJtSGTuinyVGa6/Uu8kxZludCmzxMEzV0B6U004k25W35fj2yNlCBSWM1paujKFWZSbfat+7G2mzc7weiu34aczzFNYGBhgfLfcV6iQP3ACkSaj349AxXSN9IT0j16JepOb01doiKbNWt1ovippz6sVYYwsXgX2rGVFIkq7Pl2PNrI6qW6eOshj0xaSq9mpNEZIWs8LZUfOouNkVXxp/d5woqebeYIf4D2J1ywQB4nG3LOw6AIBAE0B384B+PAkgEa+QwNnYmHt+EpXSal5lkSBBnoP8oCFSo0aCFRIceA0ZMmLFAYSW88rmvtMUjG3RiQ9HvpfusM6zWNmtc5H/iPewha50tOt5PS/QBx2IeSwAA") format("woff");
+}
+
+.admonition {
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12), 0 3px 1px -2px rgba(0, 0, 0, .2);
+  position: relative;
+  margin: 1.5625em 0;
+  padding: 0 1.2rem;
+  border-left: .4rem solid rgba(68, 138, 255, .8);
+  border-radius: .2rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  overflow: auto;
+}
+
+.admonition>p {
+  margin-top: .8rem;
+}
+
+.admonition>.admonition-title {
+  margin: 0 -1.2rem;
+  padding: .8rem 1.2rem .8rem 3.6rem;
+  border-bottom: 1px solid rgba(68, 138, 255, .2);
+  background-color: rgba(68, 138, 255, .1);
+  font-weight: 700;
+}
+
+.admonition>.admonition-title:before {
+  position: absolute;
+  left: 1.2rem;
+  font-size: 1.5rem;
+  color: rgba(68, 138, 255, .8);
+  content: "\E3C9";
+}
+
+.admonition>.admonition-title:before {
+  font-family: Material Icons;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  line-height: 2rem;
+  text-transform: none;
+  white-space: nowrap;
+  speak: none;
+  word-wrap: normal;
+  direction: ltr;
+}
+
+.admonition.summary,
+.admonition.abstract,
+.admonition.tldr {
+  border-left-color: rgba(0, 176, 255, .8);
+}
+
+.admonition.summary>.admonition-title,
+.admonition.abstract>.admonition-title,
+.admonition.tldr>.admonition-title {
+  background-color: rgba(0, 176, 255, .1);
+  border-bottom-color: rgba(0, 176, 255, .2);
+}
+
+.admonition.summary>.admonition-title:before,
+.admonition.abstract>.admonition-title:before,
+.admonition.tldr>.admonition-title:before {
+  color: rgba(0, 176, 255, 1);
+  ;
+  content: "\E8D2";
+}
+
+.admonition.hint,
+.admonition.tip {
+  border-left-color: rgba(0, 191, 165, .8);
+}
+
+.admonition.hint>.admonition-title,
+.admonition.tip>.admonition-title {
+  background-color: rgba(0, 191, 165, .1);
+  border-bottom-color: rgba(0, 191, 165, .2);
+}
+
+.admonition.hint>.admonition-title:before,
+.admonition.tip>.admonition-title:before {
+  color: rgba(0, 191, 165, 1);
+  content: "\E80E";
+}
+
+.admonition.info,
+.admonition.todo {
+  border-left-color: rgba(0, 184, 212, .8);
+}
+
+.admonition.info>.admonition-title,
+.admonition.todo>.admonition-title {
+  background-color: rgba(0, 184, 212, .1);
+  border-bottom-color: rgba(0, 184, 212, .2);
+}
+
+.admonition.info>.admonition-title:before,
+.admonition.todo>.admonition-title:before {
+  color: rgba(0, 184, 212, 1);
+  ;
+  content: "\E88E";
+}
+
+.admonition.success,
+.admonition.check,
+.admonition.done {
+  border-left-color: rgba(0, 200, 83, .8);
+}
+
+.admonition.success>.admonition-title,
+.admonition.check>.admonition-title,
+.admonition.done>.admonition-title {
+  background-color: rgba(0, 200, 83, .1);
+  border-bottom-color: rgba(0, 200, 83, .2);
+}
+
+.admonition.success>.admonition-title:before,
+.admonition.check>.admonition-title:before,
+.admonition.done>.admonition-title:before {
+  color: rgba(0, 200, 83, 1);
+  ;
+  content: "\E876";
+}
+
+.admonition.question,
+.admonition.help,
+.admonition.faq {
+  border-left-color: rgba(100, 221, 23, .8);
+}
+
+.admonition.question>.admonition-title,
+.admonition.help>.admonition-title,
+.admonition.faq>.admonition-title {
+  background-color: rgba(100, 221, 23, .1);
+  border-bottom-color: rgba(100, 221, 23, .2);
+}
+
+.admonition.question>.admonition-title:before,
+.admonition.help>.admonition-title:before,
+.admonition.faq>.admonition-title:before {
+  color: rgba(100, 221, 23, 1);
+  ;
+  content: "\E887";
+}
+
+.admonition.warning,
+.admonition.attention,
+.admonition.caution {
+  border-left-color: rgba(255, 145, 0, .8);
+}
+
+.admonition.warning>.admonition-title,
+.admonition.attention>.admonition-title,
+.admonition.caution>.admonition-title {
+  background-color: rgba(255, 145, 0, .1);
+  border-bottom-color: rgba(255, 145, 0, .2);
+}
+
+.admonition.attention>.admonition-title:before {
+  color: rgba(255, 145, 0, 1);
+  content: "\E417";
+}
+
+.admonition.warning>.admonition-title:before,
+.admonition.caution>.admonition-title:before {
+  color: rgba(255, 145, 0, 1);
+  content: "\E002";
+}
+
+.admonition.failure,
+.admonition.fail,
+.admonition.missing {
+  border-left-color: rgba(255, 82, 82, .8);
+}
+
+.admonition.failure>.admonition-title,
+.admonition.fail>.admonition-title,
+.admonition.missing>.admonition-title {
+  background-color: rgba(255, 82, 82, .1);
+  border-bottom-color: rgba(255, 82, 82, .2);
+}
+
+.admonition.failure>.admonition-title:before,
+.admonition.fail>.admonition-title:before,
+.admonition.missing>.admonition-title:before {
+  color: rgba(255, 82, 82, 1);
+  ;
+  content: "\E14C";
+}
+
+.admonition.danger,
+.admonition.error,
+.admonition.bug {
+  border-left-color: rgba(255, 23, 68, .8);
+}
+
+.admonition.danger>.admonition-title,
+.admonition.error>.admonition-title,
+.admonition.bug>.admonition-title {
+  background-color: rgba(255, 23, 68, .1);
+  border-bottom-color: rgba(255, 23, 68, .2);
+}
+
+.admonition.danger>.admonition-title:before {
+  color: rgba(255, 23, 68, 1);
+  content: "\E3E7";
+}
+
+.admonition.error>.admonition-title:before {
+  color: rgba(255, 23, 68, 1);
+  content: "\E14C";
+}
+
+.admonition.bug>.admonition-title:before {
+  color: rgba(255, 23, 68, 1);
+  content: "\E868";
+}
+
+.admonition.example,
+.admonition.snippet {
+  border-left-color: rgba(0, 184, 212, .8);
+}
+
+.admonition.example>.admonition-title,
+.admonition.snippet>.admonition-title {
+  background-color: rgba(0, 184, 212, .1);
+  border-bottom-color: rgba(0, 184, 212, .2);
+}
+
+.admonition.example>.admonition-title:before,
+.admonition.snippet>.admonition-title:before {
+  color: rgba(0, 184, 212, 1);
+  ;
+  content: "\E242";
+}
+
+.admonition.quote,
+.admonition.cite {
+  border-left-color: rgba(158, 158, 158, .8);
+}
+
+.admonition.quote>.admonition-title,
+.admonition.cite>.admonition-title {
+  background-color: rgba(158, 158, 158, .1);
+  border-bottom-color: rgba(158, 158, 158, .2);
+}
+
+.admonition.quote>.admonition-title:before,
+.admonition.cite>.admonition-title:before {
+  color: rgba(158, 158, 158, 1);
+  ;
+  content: "\E244";
+}
+
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+  *{
+    /* font-family: 'Open Sans' */
+    /* font-family: 'arial' */
+    font-family: 'Poppins';
+    /* box-sizing: border-box;
+    padding: 0;
+    margin: 0; */
+  }
+  h1 {
+    text-align: center;
+  }
+  h2 {
+    
+  }
+</style>
+<div align="center">
+<img height="60" src="https://img.icons8.com/color/344/javascript.png">
+<h1>Fundamentos JavaScript</h1>
+<table>
+<thead>
+<tr>
+<th>Hola aqui yacen todos mis apuntes y conceptos sobres los fundamentos del lenguaje de programacion JavaScript.</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+<hr>
+</div>
+<p>JavaScript (JS) es un lenguaje de programaci&#xF3;n ligero multiplataforma, interpretado, o compilado y orientado a objetos que se utiliza para hacer que las p&#xE1;ginas web sean interactivas.</p>
+<p>JS permite implementar cosas complejas en p&#xE1;ginas web.</p>
+<ul>
+<li>Animaciones complejas.</li>
+<li>Botones con los que interactuar.</li>
+<li>Menus emergentes.</li>
+</ul>
+<p>Tambien hay versiones de JS de lado del servidor m&#xE1;s avanzadas, como NodeJS, que permite agregar mas funcionalidad a un sitio web.</p>
+<p>JS contiene una biblioteca est&#xE1;ndar de objetos, como <strong>Array</strong>, <strong>Date</strong> y <strong>Math</strong>, y un conjunto b&#xE1;sico de elementos del lenguaje como operadores, estructuras de control y declaraciones.</p>
+<p>El n&#xFA;cleo de JS se puede extender para una variedad de prop&#xF3;sitos complet&#xE1;ndolo con objetos adicionales; por ejemplo:</p>
+<ul>
+<li>
+<h6><strong>JavaScript de lado del cliente:</strong></h6>
+<p>Proporcionar objetos para controlar un navegador y el DOM (Document Objet Model). Por ejemplo las extenciones de lado del cliente permiten que una aplicaci&#xF3;n coloque elementos en un formulario HTML y responda a eventos del usuario, como clics, formularios y navegacion de paginas.</p>
+</li>
+<li>
+<h6><strong>JavaScript de lado del servidor:</strong></h6>
+<p>Proporciona objetos relevantes para ejecutar JS en un servidor. Por ejemplo, las extensiones del lado del servidor permiten que una aplicaci&#xF3;n se comunique con una base de datos, brinde continuidad de informacion de una invocacion a otra de la aplicacion o realice manipulacion de archivos en un servidor.</p>
+</li>
+</ul>
+<p>Dicho de otra forma JS puede cambiar la apariencia de la p&#xE1;gina web (DOM). Y, del mismo modo, NodeJS en el servidor puede responder a sulicitudes personalizadas desde el c&#xF3;digo escrito en el navegador.</p>
+<h1 class="mume-header" id="-variables-">Variables</h1>
+
+<hr>
+<p>Una variable es un espacio donde podemos almacenar cualquier tipo de dato que prodr&#xE1; cambiar durante la ejecuci&#xF3;n del programa.</p>
+<p><strong>En JavaScript se pueden declarar variables de 3 formas:</strong></p>
+<ul>
+<li>
+<p><strong>Var</strong>: Define una variable global o local en una funci&#xF3;n sin importar el &#xE1;mbito del bloque, se puede modificar su valor.</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript"><span class="token comment">// Las variables declaradas con var pueden ser reasignadas con otro valor</span>
+<span class="token keyword keyword-var">var</span> myVar <span class="token operator">=</span> <span class="token string">&apos;Hello world&apos;</span><span class="token punctuation">;</span>
+myVar <span class="token operator">=</span> <span class="token number">2022</span><span class="token punctuation">;</span> 
+</pre></li>
+<li>
+<p><strong>Let</strong>: Permite declarar variables limitando su alcance (scope) al bloque, esta permite modificar su valor.</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript"><span class="token comment">// Las variables declaradas con let se les puede reasignar otro valor </span>
+<span class="token keyword keyword-let">let</span> myLet <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">;</span>
+myLet <span class="token operator">=</span> <span class="token string">&apos;20&apos;</span><span class="token punctuation">;</span> 
+</pre></li>
+<li>
+<p><strong>Const</strong>: Permite declarar variables limitando su alcance (scope) al bloque, no se puede modificar el valor porsteriormente.</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript"><span class="token comment">// Las variables declaradas con const no se pueden modificar </span>
+<span class="token keyword keyword-const">const</span> <span class="token constant">PI</span> <span class="token operator">=</span> <span class="token number">3.1416</span><span class="token punctuation">;</span>
+<span class="token constant">PI</span> <span class="token operator">=</span> <span class="token number">23.22</span><span class="token punctuation">;</span> <span class="token comment">// No se puede reasignar a una constante</span>
+</pre></li>
+</ul>
+<h2 class="mume-header" id="-declaracion-de-una-variable--">Declaracion de una variable:</h2>
+
+<p>Para usar una variable, primero se debe crear, a esto lo llamamos declarar la variable. Para hacerlo, escribimos la palabra clave <code>var</code>, <code>const</code> o <code>let</code> seguido del nombre con el que se desea llamar a la variable:</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript"><span class="token keyword keyword-var">var</span> myName<span class="token punctuation">;</span> 
+<span class="token keyword keyword-let">let</span> myAge<span class="token punctuation">;</span>  
+
+myName<span class="token punctuation">;</span>  <span class="token comment">// Undefined</span>
+myAge<span class="token punctuation">;</span>   <span class="token comment">// Undefined</span>
+</pre><p>Actualmente no tienen ning&#xFA;n valor; son contenedores vac&#xED;os. Cuando se ingresan los nombres de las variables, estas devuelven un valor undefined. Si no existen, mostrar&#xE1; un mensaje de error.</p>
+<h2 class="mume-header" id="-inicializar-variable-">Inicializar Variable</h2>
+
+<p>Una vez declarada una variable, se puede inicializar con un valor. Para ello, escribe el nombre de la variable, seguido de un signo igual (=), seguido del valor que deseas darle.</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript">myName <span class="token operator">=</span> <span class="token string">&quot;Armando&quot;</span><span class="token punctuation">;</span>
+myAge <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">;</span>
+
+myName<span class="token punctuation">;</span> <span class="token comment">//Armando</span>
+myAge<span class="token punctuation">;</span>  <span class="token comment">//20</span>
+</pre><p>Tambien las variables se pueden declarar e iniciar al mismo tiempo:</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript"><span class="token keyword keyword-let">let</span> myName <span class="token operator">=</span> <span class="token string">&quot;Armando&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-let">let</span> myAge <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">;</span>
+</pre><p><a style="color: tomato; font-weight: bold" href>NOTA:</a> No confundas una variable que existe pero no tiene un valor definido, con una variable que no existe en absoluto &#x2014; son cosas muy diferentes. No existir significar&#xED;a que no hay una caja (variable) para guardar un valor. Ning&#xFA;n valor definido significar&#xED;a que HAY una caja, pero no tiene ning&#xFA;n valor dentro de ella.</p>
+<h2 class="mume-header" id="-scope-de-una-variable-"><strong>Scope de una Variable:</strong></h2>
+
+<p>El scope puede definirse como el alcance que una variable tendr&#xE1; en el c&#xF3;digo. En otras palabras, el scope decide a qu&#xE9; variables se tiene acceso en cada parte del c&#xF3;digo. Existen dos tipos de scope, el <code>scope global</code> y el <code>scope local</code>.</p>
+<ul>
+<li>
+<p><strong>Globales:</strong> Son aquellas variables declaradas fuera de una funcion o de un bloque con las que podemos acceder a ellas desde cualquier parte del codigo, ya sea dentro o fuera de una funci&#xF3;n.</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript"><span class="token keyword keyword-const">const</span> soyEstudiante <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+
+<span class="token keyword keyword-function">function</span> <span class="token function">estudiante</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>soyEstudiante<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">estudiante</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//true</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>soyEstudiante<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//true</span>
+</pre></li>
+<li>
+<p><strong>Locales:</strong> Son las variables declaradas dentro de una funcion o bloque, solo pueden ser accedidas desde la misma funcion donde se declaro. Si se trata de accerder a la variable se tendra un error de variable no definida.</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript"><span class="token keyword keyword-function">function</span> <span class="token function">estudiante</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword keyword-const">const</span> soyEstudiante <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+  <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>soyEstudiante<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">estudiante</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// true</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>soyEstudiante<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// soyEstudiante is not defined</span>
+</pre></li>
+</ul>
+<h2 class="mume-header" id="-que-es-el-hoisting-"><strong>&#xBF;Que es el Hoisting?</strong></h2>
+
+<p>El concepto de Hoisting fue pensado como una manera general de referirse a c&#xF3;mo funcionan los contextos de ejecuci&#xF3;n en JavaScript (espec&#xED;ficamente las fases de creaci&#xF3;n y ejecuci&#xF3;n).</p>
+<h1 class="mume-header" id="-operadores-en-javascript-">Operadores en JavaScript</h1>
+
+<hr>
+<details>
+<summary> <b>Operadores Aritmeticos:</b> </summary>
+<p>
+Los operadores aritmeticos toman valores numericos (ya sena literales o variables) como sus operados y retornan un valor numerico unico.
+</p><ul>
+<li><strong>Adici&#xF3;n <code>x + y</code></strong></li>
+<li><strong>Resta <code>x - y</code></strong></li>
+<li><strong>Multiplicacion <code>x * y</code></strong></li>
+<li><strong>Divici&#xF3;n <code>x / y</code></strong></li>
+<li><strong>Res&#xED;duo <code>x % y</code></strong></li>
+<li><strong>Post-Incremento en 1 <code>a++</code></strong></li>
+<li><strong>Pre-Incremento en 1 <code>++a</code></strong></li>
+<li><strong>Post-Decremento <code>a--</code></strong></li>
+<li><strong>Pre-Decremento <code>--a</code></strong></li>
+</ul>
+<p></p>
+</details>
+<details>
+<summary><b> Operadores de Asignacion:</b></summary>
+<p>
+Un operador de asignacion asigna un valor al operado de la izquierda basado en el valor del operando de la derecha.
+</p><ul>
+<li><strong>Asignaci&#xF3;n <code>x = y</code></strong></li>
+<li><strong>Asignaci&#xF3;n de Adici&#xF3;n <code>x += y</code></strong></li>
+<li><strong>Asignaci&#xF3;n de Resta <code>x -= y</code></strong></li>
+<li><strong>Asignaci&#xF3;n de Multiplicacion <code>x *= y</code></strong></li>
+<li><strong>Asignaci&#xF3;n de Divici&#xF3;n <code>x /= y</code></strong></li>
+<li><strong>Asignaci&#xF3;n de Res&#xED;duo <code>x %= y</code></strong></li>
+</ul>
+<p></p>
+</details>
+<details>
+<summary><b>Operadores de Comparacion:</b></summary>
+<p>
+Los operadores de comparaci&#xF3;n comparan dos expresiones y devuelven un valor **Boolean** que representa la relaci&#xF3;n de sus valores.
+</p><ul>
+<li><strong>Igualdad <code>x == y</code></strong></li>
+<li><strong>Diferente <code>x != y</code></strong></li>
+<li><strong>Estrictamente Igual <code>x === y</code></strong></li>
+<li><strong>Desigualdad Estricta <code>x !== y</code></strong></li>
+<li><strong>Mayor que <code>x &gt; y</code></strong></li>
+<li><strong>Mayor o igual que <code>x &gt;= y</code></strong></li>
+<li><strong>Menor que <code>x &lt; y</code></strong></li>
+<li><strong>Menor o igual que <code>x &lt;= y</code></strong></li>
+</ul>
+<p></p>
+</details>
+<details>
+<summary> <b>Operadores L&#xF3;gicos:</b> </summary>
+<p>
+</p><p>Los operadores l&#xF3;gicos nos devuelven un resultado a partir de que se cumpla o no una <strong>condici&#xF3;n</strong>, su resultado es <strong>Booleano</strong>, y sus operadores son valores l&#xF3;gicos o asimilables a ellos.</p>
+<ul>
+<li><strong>AND (&amp;&amp;)</strong></li>
+<li><strong>OR (||)</strong></li>
+<li><strong>NOT (!)</strong></li>
+</ul>
+<p></p>
+</details>
+<h1 class="mume-header" id="-tipos-de-datos-">Tipos de datos</h1>
+
+<hr>
+<h2 class="mume-header" id="-tipo-primitivos--"><strong>Tipo Primitivos:</strong></h2>
+
+<ul>
+<li>
+<h3>String</h3>
+<p>Los tipos de dato <code>String</code> son piezas de texto. Cuando le das a una variable un valor de cadena, debes de encerrarlo entre comillas simples o dobles, de lo contrario, JavaScript intenta interpretarlo como otro nombre de variable.</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript"><span class="token keyword keyword-let">let</span> myDog <span class="token operator">=</span> <span class="token string">&quot;Tomas&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-let">let</span> myName <span class="token operator">=</span> <span class="token string">&apos;Armando&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-let">let</span> myLastName <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Crescencio</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+</pre></li>
+<li>
+<h3>Number</h3>
+<p>Se pueden almacenar n&#xFA;meros en variables, ya sean n&#xFA;meros enteros (Integer) o numeros decimales (Float). No se necesario declarar el tipo de las variables en JavaScript.</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript"><span class="token keyword keyword-let">let</span> myAge <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-const">const</span> pi <span class="token operator">=</span> <span class="token number">3.1416</span><span class="token punctuation">;</span>
+</pre></li>
+<li>
+<h3>Boolean</h3>
+<p>Los booleanos pueden tener dos valores <code>true</code> / <code>false</code>. Estos generalmente se utilizan para probar una condici&#xF3;n, despu&#xE9;s de lo cual se ejecuta el c&#xF3;digo seg&#xFA;n corresponda. As&#xED;, por ejemplo:</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript"><span class="token keyword keyword-let">let</span> iAmAlive <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-let">let</span> test <span class="token operator">=</span> <span class="token number">6</span> <span class="token operator">&lt;</span> <span class="token number">3</span><span class="token punctuation">;</span> <span class="token comment">//False</span>
+<span class="token keyword keyword-let">let</span> test2 <span class="token operator">=</span> <span class="token number">6</span> <span class="token operator">&gt;</span> <span class="token number">3</span><span class="token punctuation">;</span> <span class="token comment">//True</span>
+</pre></li>
+<li>
+<h3>Null</h3>
+<p>El valor null es un literal de Javascript que representa intencionalmente un valor nulo o &quot;vac&#xED;o&quot;.</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript"><span class="token keyword keyword-let">let</span> x <span class="token operator">=</span> <span class="token keyword null nil keyword-null">null</span><span class="token punctuation">;</span>
+</pre></li>
+<li>
+<h3>Undefined</h3>
+<p>Una variable a la que no se le ha asignado valor, o no se ha declarado en absoluto son de tipo undefined. Un m&#xE9;todo o sentencia tambi&#xE9;n devuelve undefined si la variable que se est&#xE1; evaluando no tiene asignado un valor. Una funci&#xF3;n devuelve undefined si no se ha devuelto un valor.</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript"><span class="token keyword keyword-let">let</span> x<span class="token punctuation">;</span> <span class="token comment">//Undefined</span>
+<span class="token keyword control-flow keyword-if">if</span> <span class="token punctuation">(</span>x <span class="token operator">===</span> <span class="token keyword nil keyword-undefined">undefined</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token comment">//Se ejecuta esta instruccion</span>
+<span class="token punctuation">}</span> <span class="token keyword control-flow keyword-else">else</span> <span class="token punctuation">{</span>
+    <span class="token comment">//No se ejecuta la instruccion</span>
+<span class="token punctuation">}</span>
+</pre></li>
+<li>
+<h3>NaN</h3>
+<p>La propiedad global NaN es un valor que representa Not-A-Number.</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript"><span class="token keyword keyword-let">let</span> notANumber <span class="token operator">=</span> <span class="token string">&quot;Hola mundo&quot;</span> <span class="token operator">*</span> <span class="token number">3</span><span class="token punctuation">;</span> <span class="token comment">//NaN</span>
+</pre></li>
+</ul>
+<h2 class="mume-header" id="-tipo-objeto-"><strong>Tipo Objeto:</strong></h2>
+
+<ul>
+<li>
+<h3>Function</h3>
+<p>Una funci&#xF3;n es un bloque de c&#xF3;digo, autocontenido, que se puede definir una vez y ejecutar en cualquier momento. Opcionalmente, una funci&#xF3;n puede aceptar par&#xE1;metros y retornar un valor.</p>
+<p>Las funciones en JavaScript son objetos, un tipo especial de objetos.</p>
+<p>Hay varias formas de crear funciones en Javascript: por <code>declaraci&#xF3;n</code> y por <code>expresi&#xF3;n</code>.</p>
+<h4><strong>Declaracion de Funcion (Function Declaration)</strong></h4>
+<p>Esta forma permite declarar una funci&#xF3;n que existir&#xE1; a lo largo de todo el c&#xF3;digo:</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript"><span class="token comment">// Funcion sin parametros</span>
+<span class="token keyword keyword-function">function</span> <span class="token function">suma</span> <span class="token punctuation">(</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow keyword-return">return</span> <span class="token punctuation">(</span><span class="token number">2</span> <span class="token operator">+</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token function">suma</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 2</span>
+
+<span class="token comment">// Funcion con parametros</span>
+<span class="token keyword keyword-function">function</span> <span class="token function">suma</span> <span class="token punctuation">(</span><span class="token parameter">x<span class="token punctuation">,</span> y</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow keyword-return">return</span> <span class="token punctuation">(</span>x <span class="token operator">+</span> y<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+<span class="token function">suma</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 6</span>
+</pre><p>Pueden ser invocadas en culaquier parte del c&#xF3;digo, incluso antes de haberla declarado.</p>
+<h4><strong>Expresion de Funcion (Function Expression)</strong></h4>
+<p>Las funciones expresadas, es decir, una funci&#xF3;n (<code>anonima</code>) que se le ha asignado como valor a una variable. A diferencia de las funciones declaradas, las  funciones expresadas no pueden ser invocadas antes de ser declaradas.</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript"><span class="token comment">// Funcion Expresada Sin Parametros</span>
+<span class="token keyword keyword-const">const</span> <span class="token function-variable function">suma</span> <span class="token operator">=</span> <span class="token keyword keyword-function">function</span> <span class="token punctuation">(</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow keyword-return">return</span> <span class="token punctuation">(</span><span class="token number">3</span> <span class="token operator">+</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token function">suma2</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// 6</span>
+
+<span class="token comment">// Funcion Expresada Con Parametros</span>
+<span class="token keyword keyword-const">const</span> <span class="token function-variable function">suma</span> <span class="token operator">=</span> <span class="token keyword keyword-function">function</span> <span class="token punctuation">(</span><span class="token parameter">x<span class="token punctuation">,</span> y</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow keyword-return">return</span> <span class="token punctuation">(</span>x <span class="token operator">+</span> y<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token function">suma2</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">)</span> <span class="token comment">// 8</span>
+</pre><h4><strong>Funcion Flecha (Arrow Function)</strong></h4>
+<p>Las Arrow functions  son una forma corta de escribir funciones que aparece en Javascript a partir de ECMAScript 6. B&#xE1;sicamente, se trata de reemplazar la palabra function y a&#xF1;adir =&gt; antes de abrir las llaves:</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript"><span class="token comment">// Arrow Function Sin Parametros</span>
+<span class="token keyword keyword-const">const</span> <span class="token function-variable function">suma</span> <span class="token operator">=</span> <span class="token punctuation">(</span> <span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow keyword-return">return</span> <span class="token punctuation">(</span><span class="token number">4</span> <span class="token operator">+</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token function">suma</span><span class="token punctuation">(</span> <span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 8</span>
+
+<span class="token comment">// Arrow Function Con Parametros</span>
+<span class="token keyword keyword-const">const</span> <span class="token function-variable function">suma</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">x<span class="token punctuation">,</span> y</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow keyword-return">return</span> <span class="token punctuation">(</span>x <span class="token operator">+</span> y<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token function">suma</span><span class="token punctuation">(</span><span class="token number">12</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 14</span>
+</pre><p><strong>Sin embargo, las funciones flechas tienen algunas ventajas a la hora de simplificar c&#xF3;digo bastante interesantes:</strong></p>
+<ul>
+<li>
+<p>Si el cuerpo de la funci&#xF3;n s&#xF3;lo tiene una l&#xED;nea, podemos omitir las llaves ({}).</p>
+</li>
+<li>
+<p>Adem&#xE1;s, en ese caso, autom&#xE1;ticamente se hace un return de esa &#xFA;nica l&#xED;nea, por lo que podemos omitir tambi&#xE9;n el return.</p>
+</li>
+<li>
+<p>En el caso de que la funci&#xF3;n tenga un solo par&#xE1;metro, se puede indicar simplemente el nombre del mismo: e =&gt;.</p>
+</li>
+<li>
+<p>En el caso de que la funci&#xF3;n tenga 2 &#xF3; m&#xE1;s par&#xE1;metros, se indican entre par&#xE9;ntesis: (a, b) =&gt;.</p>
+</li>
+<li>
+<p>Si queremos devolver un objeto, que coincide con la sintaxis de las llaves, se puede englobar con par&#xE9;ntesis: ({name: &apos;Manz&apos;}).</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript"><span class="token comment">// Arrow Function Sin Parametros</span>
+<span class="token keyword keyword-const">const</span> <span class="token function-variable function">suma</span> <span class="token operator">=</span> <span class="token punctuation">(</span> <span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">(</span><span class="token number">3</span> <span class="token operator">+</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">suma</span><span class="token punctuation">(</span> <span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 5</span>
+
+<span class="token comment">// Arrow Function Con Parametros</span>
+<span class="token keyword keyword-const">const</span> <span class="token function-variable function">suma</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">x<span class="token punctuation">,</span> y</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">(</span>x <span class="token operator">+</span> y<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">suma</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 7</span>
+</pre></li>
+</ul>
+</li>
+<li>
+<h3>Array</h3>
+<p>Una array es un objeto &#xFA;nico que contiene m&#xFA;ltiples valores encerrados entre corchetes y separados por comas.</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript"><span class="token keyword keyword-const">const</span> myNameArray <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">&apos;Armando&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;Nacho&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;Alvaro&apos;</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-const">const</span> myNumberArray <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">40</span><span class="token punctuation">,</span> <span class="token number">200</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">,</span> <span class="token number">13</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token comment">//Array anidado</span>
+<span class="token keyword keyword-const">const</span> myRandomArray <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">12</span><span class="token punctuation">,</span> <span class="token number">23</span><span class="token punctuation">,</span> <span class="token number">34</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">&quot;Leon&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;Perro&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;Gato&quot;</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">,</span> <span class="token string">&quot;hola&quot;</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+</pre><p>Una vez que se definen los arreglos, se puede acceder a cada valor por su indice del array:</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript">myNameArray<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>    <span class="token comment">// &apos;Nacho&apos;</span>
+myNumeberArray<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">// 40</span>
+myRandomArray<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token comment">// False</span>
+</pre><p>Los corchetes especifican un valor de &#xED;ndice correspondiente a su posici&#xF3;n del valor que se desea devolver.</p>
+<details>
+<summary><b>Array Methods</b></summary>
+<p>
+</p><pre data-role="codeBlock" data-info="js" class="language-javascript"><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token method function property-access">push</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span> <span class="token comment">// [1, 2, 3, 4]</span>
+<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token method function property-access">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// [1, 2]</span>
+<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token method function property-access">shift</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// [2, 3]</span>
+<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token method function property-access">unshift</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token comment">// [0, 1, 2, 3]</span>
+<span class="token punctuation">[</span><span class="token string">&apos;a&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;b&apos;</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token method function property-access">concat</span><span class="token punctuation">(</span><span class="token string">&apos;c&apos;</span><span class="token punctuation">)</span> <span class="token comment">// [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;]</span>
+<span class="token punctuation">[</span><span class="token string">&apos;a&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;b&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;c&apos;</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token method function property-access">join</span><span class="token punctuation">(</span><span class="token string">&apos;-&apos;</span><span class="token punctuation">)</span> <span class="token comment">// a-b-c</span>
+<span class="token punctuation">[</span><span class="token string">&apos;a&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;b&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;c&apos;</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token method function property-access">slice</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token comment">// [&apos;a&apos;, &apos;b&apos;]</span>
+<span class="token punctuation">[</span><span class="token string">&apos;a&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;b&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;c&apos;</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token method function property-access">indexOf</span><span class="token punctuation">(</span><span class="token string">&apos;b&apos;</span><span class="token punctuation">)</span> <span class="token comment">// 1</span>
+<span class="token punctuation">[</span><span class="token string">&apos;a&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;b&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;c&apos;</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token method function property-access">includes</span><span class="token punctuation">(</span><span class="token string">&apos;c&apos;</span><span class="token punctuation">)</span> <span class="token comment">// true</span>
+<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token method function property-access">find</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">n</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> n <span class="token operator">%</span> <span class="token number">2</span> <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token comment">// 6</span>
+<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token method function property-access">findIndex</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">n</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> n <span class="token operator">%</span> <span class="token number">2</span> <span class="token operator">!==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token comment">// 2</span>
+<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token method function property-access">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">n</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> n <span class="token operator">*</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token comment">// [6, 8, 16, 12]</span>
+<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token method function property-access">filter</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">n</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token operator">%</span> <span class="token number">2</span> <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token comment">// [4, 8]</span>
+<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token method function property-access">reducer</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">acc<span class="token punctuation">,</span> cur</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> acc <span class="token operator">+</span> cur<span class="token punctuation">)</span> <span class="token comment">// 16</span>
+<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token method function property-access">every</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">x</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> x <span class="token operator">&lt;</span> <span class="token number">6</span><span class="token punctuation">)</span> <span class="token comment">// true</span>
+<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token method function property-access">some</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">n</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> n <span class="token operator">&gt;</span> <span class="token number">6</span><span class="token punctuation">)</span> <span class="token comment">// true</span>
+<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token method function property-access">reverse</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// [4, 3, 2, 1]</span>
+<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token method function property-access">at</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token comment">// 7</span>
+</pre><p></p>
+</details>
+</li>
+<li>
+<h3>Object</h3>
+<p>Los objetos son setructuras de datos que representan propiedades, valores y acciones que puede realizar el objeto.</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript"><span class="token comment">// Objeto Literal</span>
+<span class="token keyword keyword-const">const</span> myObj <span class="token operator">=</span> <span class="token punctuation">{</span>
+  name<span class="token operator">:</span> <span class="token string">&apos;Armando&apos;</span><span class="token punctuation">,</span>
+  age<span class="token operator">:</span> <span class="token number">34</span><span class="token punctuation">,</span>
+  student<span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</pre><p>Para acceder a las propiedades y acciones del objeto se utiliza la nomenclatura del punto o sintanxis de punto.</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript"><span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>myObj<span class="token punctuation">.</span><span class="token property-access">name</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">//Accediendo al valor de la propiedad nombre</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>myObj<span class="token punctuation">[</span><span class="token string">&apos;name&apos;</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+
+myObj<span class="token punctuation">.</span><span class="token property-access">imagen</span> <span class="token operator">=</span> <span class="token string">&quot;imagen.jpg&quot;</span><span class="token punctuation">;</span> <span class="token comment">// Agregando nueva propiedad al objeto</span>
+
+<span class="token keyword keyword-delete">delete</span> myObj<span class="token punctuation">.</span><span class="token property-access">student</span><span class="token punctuation">;</span> <span class="token comment">// Eliminando propiedad del objeto</span>
+</pre></li>
+</ul>
+<h1 class="mume-header" id="-desestructuracion-">Desestructuracion</h1>
+
+<hr>
+<p>La sintaxis de desestructuraci&#xF3;n es una funcionalidad que vino junto con ES6. Es una expresi&#xF3;n de JavaScript que permite desempacar valores de <code>arreglos</code> o propiedades de <code>objetos</code> en distintas variables. Es decir, podemos extraer datos de arreglos y objectos y asignarlos a variables.</p>
+<ul>
+<li>
+<h2><strong>Desestructuracion de Objetos:</strong></h2>
+<pre data-role="codeBlock" data-info="js" class="language-javascript"><span class="token keyword keyword-const">const</span> user <span class="token operator">=</span> <span class="token punctuation">{</span>
+  userName<span class="token operator">:</span> <span class="token string">&quot;Manz&quot;</span><span class="token punctuation">,</span>
+  role<span class="token operator">:</span> <span class="token string">&quot;streamer&quot;</span><span class="token punctuation">,</span>
+  attributes<span class="token operator">:</span> <span class="token punctuation">{</span>
+    height<span class="token operator">:</span> <span class="token number">183</span><span class="token punctuation">,</span>
+    favColor<span class="token operator">:</span> <span class="token string">&quot;blueviolet&quot;</span><span class="token punctuation">,</span>
+    hairColor<span class="token operator">:</span> <span class="token string">&quot;black&quot;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Destructuring</span>
+<span class="token keyword keyword-const">const</span> <span class="token punctuation">{</span> userName<span class="token punctuation">,</span> role<span class="token punctuation">,</span> attributes<span class="token operator">:</span> <span class="token punctuation">{</span> height<span class="token punctuation">,</span> favColor<span class="token punctuation">,</span> hairColor <span class="token punctuation">}</span><span class="token punctuation">}</span> <span class="token operator">=</span> user<span class="token punctuation">;</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>userName<span class="token punctuation">,</span> role<span class="token punctuation">,</span> height<span class="token punctuation">,</span> favColor<span class="token punctuation">,</span> hairColor<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</pre></li>
+<li>
+<h2>Desestructuracion de Arrays</h2>
+<pre data-role="codeBlock" data-info="js" class="language-javascript"><span class="token keyword keyword-const">const</span> user <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">&quot;Manz&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;Streamer&quot;</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">183</span><span class="token punctuation">,</span> <span class="token string">&quot;blueviolet&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;black&quot;</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token keyword keyword-const">const</span> <span class="token punctuation">[</span> userName<span class="token punctuation">,</span> role<span class="token punctuation">,</span> <span class="token punctuation">[</span> height<span class="token punctuation">,</span> favColor<span class="token punctuation">,</span> hairColor <span class="token punctuation">]</span> <span class="token punctuation">]</span> <span class="token operator">=</span> user<span class="token punctuation">;</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>userName<span class="token punctuation">,</span> role<span class="token punctuation">,</span> height<span class="token punctuation">,</span> favColor<span class="token punctuation">,</span> hairColor<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</pre></li>
+</ul>
+<h1 class="mume-header" id="-condicionales-">Condicionales</h1>
+
+<hr>
+<h1 class="mume-header" id="-class--">Class {}</h1>
+
+<hr>
+<h1 class="mume-header" id="-dom-">DOM</h1>
+
+<hr>
+<p>DOM (Document Object Model) o lo que es lo mismo, la estructura del documento HTML. Una p&#xE1;gina HTML est&#xE1; formada por m&#xFA;ltiples etiquetas HTML, anidadas una dentro de otra, formando un &#xE1;rbol de etiquetas relacionadas entre s&#xED;, que se denomina &#xE1;rbol DOM (o simplemente DOM).</p>
+<img src="DOM.png" alt="DOM" width="500px" style="margin-bottom: 15px">
+<p>En Javascript, cuando nos referimos al DOM nos r  eferimos a esta estructura, que podemos modificar de forma din&#xE1;mica desde Javascript, a&#xF1;adiendo nuevas etiquetas, modificando o eliminando otras, cambiando sus atributos HTML, a&#xF1;adiendo clases, cambiando el contenido de texto, etc...</p>
+<h2 class="mume-header" id="-seleccion-de-elementos-del-dom-">Seleccion de elementos del DOM</h2>
+
+<h3 class="mume-header" id="-metodos-tradicionales-">Metodos tradicionales:</h3>
+
+<ul>
+<li>
+<h4><code>getElementById</code></h4>
+<p>El primer m&#xE9;todo, .getElementById(id) busca un elemento HTML con el id especificado en id por par&#xE1;metro. En principio, un documento HTML bien constru&#xED;do no deber&#xED;a tener m&#xE1;s de un elemento con el mismo id, por lo tanto, este m&#xE9;todo devolver&#xE1; siempre un solo elemento:</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript"><span class="token keyword keyword-const">const</span> formulario <span class="token operator">=</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">getElementById</span><span class="token punctuation">(</span><span class="token string">&quot;form&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment">// &lt;div id=&quot;form&quot;&gt;&lt;/div&gt;</span>
+</pre><div class="admonition warning">
+<p class="admonition-title">En el caso de no encontrar el elemento indicado, devolver&#xE1; Null.</p>
+</div>
+</li>
+<li>
+<h4><code>getElementsByClassName</code></h4>
+<p>El m&#xE9;todo .getElementsByClassName(class) permite buscar los elementos con la clase especificada en class. Es importante darse cuenta del matiz de que el metodo tiene getElements en plural, y esto es porque al devolver clases (al contrario que los id) se pueden repetir, y por lo tanto, devolvernos varios elementos, no s&#xF3;lo uno.</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript"><span class="token keyword keyword-const">const</span> items <span class="token operator">=</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">getElementsByClassName</span><span class="token punctuation">(</span><span class="token string">&quot;item&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// [div, div, div]</span>
+
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>items<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>      <span class="token comment">// Primer item encontrado: &lt;div class=&quot;item&quot;&gt;&lt;/div&gt;</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>items<span class="token punctuation">.</span><span class="token property-access">length</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 3</span>
+</pre><p>Estos m&#xE9;todos devuelven un array siempre un  con todos los elementos encontrados que encajen con el criterio.</p>
+<div class="admonition warning">
+<p class="admonition-title">En el caso de no encontrar ninguno, devolver&#xE1;n un  array vac&#xED;o: [].</p>
+</div>
+</li>
+</ul>
+<h3 class="mume-header" id="-metodos-modernos-">Metodos modernos:</h3>
+
+<ul>
+<li>
+<h4><code>querySelector</code></h4>
+<p>El primero, .querySelector(selector) devuelve el primer elemento que encuentra que encaja con el selector CSS suministrado en selector. Al igual que su &#xAB;equivalente&#xBB; .getElementById(), devuelve un solo elemento y en caso de no coincidir con ninguno, devuelve null:</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript"><span class="token keyword keyword-const">const</span> page <span class="token operator">=</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">querySelector</span><span class="token punctuation">(</span><span class="token string">&quot;#page&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>               <span class="token comment">// &lt;div id=&quot;page&quot;&gt;&lt;/div&gt;</span>
+<span class="token keyword keyword-const">const</span> info <span class="token operator">=</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">querySelector</span><span class="token punctuation">(</span><span class="token string">&quot;.main .info&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>         <span class="token comment">// &lt;div class=&quot;info&quot;&gt;&lt;/div&gt;</span>
+</pre><div class="admonition warning">
+<p class="admonition-title">En el caso de no encontrar ninguno, devolver&#xE1; Null.</p>
+</div>
+</li>
+<li>
+<h4><code>querySelectorAll</code></h4>
+<p>Por otro lado, el m&#xE9;todo .querySelectorAll() realiza una b&#xFA;squeda de elementos como lo hace el anterior, s&#xF3;lo que como podremos intuir por ese All(), devuelve un array con todos los elementos que coinciden con el selector CSS:</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript"><span class="token comment">// Obtiene todos los elementos con clase &quot;info&quot;</span>
+<span class="token keyword keyword-const">const</span> infos <span class="token operator">=</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">querySelectorAll</span><span class="token punctuation">(</span><span class="token string">&quot;.info&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Obtiene todos los elementos con atributo name=&quot;nickname&quot;</span>
+<span class="token keyword keyword-const">const</span> nicknames <span class="token operator">=</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">querySelectorAll</span><span class="token punctuation">(</span><span class="token string">&apos;[name=&quot;nickname&quot;]&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Obtiene todos los elementos &lt;div&gt; de la p&#xE1;gina HTML</span>
+<span class="token keyword keyword-const">const</span> divs <span class="token operator">=</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">querySelectorAll</span><span class="token punctuation">(</span><span class="token string">&quot;div&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</pre><div class="admonition warning">
+<p class="admonition-title">En el caso de no encontrar ninguno, devolver&#xE1; [].</p>
+</div>
+</li>
+</ul>
+<p>Aunque en esta documentaci&#xF3;n se hace referencia a array, realmente los m&#xE9;todos de b&#xFA;squeda generalmente devuelven un tipo de dato <span style="color: tomato;">HTMLCollection</span> o <span style="color: tomato;">NodeList</span>, que aunque act&#xFA;an de forma muy similar a un array, no son arrays, y por lo tanto pueden carecer de algunos m&#xE9;todos, como por ejemplo .forEach().</p>
+<p>Preguntas de trabajo:</p>
+<ul>
+<li>Diferencia entre una Declaracion de Funcion y Expresion de Funcion.</li>
+</ul>
+<p>R= La Funcion Declarativa puede invocarse en cualquier parte del codigo incluso antes de que la funcion sea declarada.<br>
+Mientras que la Funcon Expresada no puede ser invocada antes de su declaracion.</p>
+<p>js tiene 2 etapas: etapa de creacion y etapa de ejecucion a esto se el conoce como hoisting</p>
+<ul>
+<li>Diferencia entre Freze y seal<br>
+R= Freze no permite modifica, agregar y eliminar las propiedades del objeto. Mientras que seal solo permite modificar las propiedades del objeto.</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Apuntes</p>
+</div>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    </body></html>
