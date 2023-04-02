@@ -1,6 +1,3 @@
-<style>
-
-</style>
 <h1 style='text-align: center'>Sistema de control de versiones</h1>
 
 ---
