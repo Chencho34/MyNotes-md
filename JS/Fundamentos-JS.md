@@ -57,7 +57,7 @@ Dicho de otra forma JS puede cambiar la apariencia de la página web (DOM). Y, d
 Una variable es un espacio donde podemos almacenar cualquier tipo de dato que prodrá cambiar durante la ejecución del programa. 
 
 
-**En JavaScript se pueden declarar variables de 3 formas:**
+**Formas de declarar variables:**
 
 * **Var**: Define una variable global o local en una función sin importar el ámbito del bloque, se puede modificar su valor.
 
@@ -85,7 +85,7 @@ Una variable es un espacio donde podemos almacenar cualquier tipo de dato que pr
 
 ## Declaracion de una variable: 
 
-Para usar una variable, primero se debe crear, a esto lo llamamos declarar la variable. Para hacerlo, escribimos la palabra clave `var`, `const` o `let` seguido del nombre con el que se desea llamar a la variable:
+Para usar una variable, primero se debe crear, a esto lo llamamos declarar la variable. Para hacerlo, escribimos la palabra reservada `var`, `const` o `let` seguido del nombre con el que se desea llamar a la variable:
 
 ```js
 var myName; 
@@ -95,14 +95,14 @@ myName;  // Undefined
 myAge;   // Undefined
 ```
 
-Actualmente no tienen ningún valor; son contenedores vacíos. Cuando se ingresan los nombres de las variables, estas devuelven un valor undefined. Si no existen, mostrará un mensaje de error.
+Actualmente no tienen ningún valor, son contenedores vacíos. Cuando se ingresan los nombres de las variables, estas devuelven un valor undefined. Si no existen, mostrará un mensaje de error.
 
 ## Inicializar Variable
 
 Una vez declarada una variable, se puede inicializar con un valor. Para ello, escribe el nombre de la variable, seguido de un signo igual (=), seguido del valor que deseas darle.
 
 ```js
-myName = "Armando";
+myName = "Chencho";
 myAge = 20;
 
 myName; //Armando
@@ -112,7 +112,7 @@ myAge;  //20
 Tambien las variables se pueden declarar e iniciar al mismo tiempo: 
 
 ```js
-let myName = "Armando";
+let myName = "Chencho";
 let myAge = 20;
 ```
 
@@ -122,20 +122,22 @@ let myAge = 20;
 
 El scope puede definirse como el alcance que una variable tendrá en el código. En otras palabras, el scope decide a qué variables se tiene acceso en cada parte del código. Existen dos tipos de scope, el `scope global` y el `scope local`.
 
-* **Globales:** Son aquellas variables declaradas fuera de una funcion o de un bloque con las que podemos acceder a ellas desde cualquier parte del codigo, ya sea dentro o fuera de una función.
+* **Globales:** 
+Son aquellas variables declaradas fuera de una funcion o de un bloque con las que podemos acceder a ellas desde cualquier parte del codigo, ya sea dentro o fuera de una función.
 
   ```js
   const soyEstudiante = true;
 
   function estudiante() {
-	    console.log(soyEstudiante);
+	console.log(soyEstudiante);
   }
 
   estudiante(); //true
   console.log(soyEstudiante); //true
   ```
 
-* **Locales:** Son las variables declaradas dentro de una funcion o bloque, solo pueden ser accedidas desde la misma funcion donde se declaro. Si se trata de accerder a la variable se tendra un error de variable no definida.
+* **Locales:** 
+Son las variables declaradas dentro de una funcion o bloque, solo pueden ser accedidas desde la misma funcion donde se declaro. Si se trata de accerder a la variable se tendra un error de variable no definida.
 
   ```js
   function estudiante() {
@@ -151,12 +153,38 @@ El scope puede definirse como el alcance que una variable tendrá en el código.
 
 El concepto de Hoisting fue pensado como una manera general de referirse a cómo funcionan los contextos de ejecución en JavaScript (específicamente las fases de creación y ejecución).
 
+# Concatenacion e interpolacion
+
+---
+
+## **Concatenación de cadenas**
+
+La concatenación es la accion de unir varias cadenas en una sola. En JavaScript, esto se hace utilizando el operador '+' o el método 'concat()'.
+
+```js
+const name = "Armando"
+const nickName = "Chencho"
+console.log('name: ' + name + 'nick: ' + nickName)
+```
+
+## **Interpolación de cadenas**
+
+La interpolación es una forma más moderna y legible de combinar cadenas en JavaScript. Se realiza utilizando plantillas literales (template literals), que son cadenas delimitadas por comillas invertidas (``) y permiten incluir expresiones dentro de ellas utilizando '${}'.
+
+```js
+const name = "Armando"
+const nickName = "Chencho"
+console.log(`name: ${name} nick: ${nickName}`)
+```
+
+La interpolación de cadenas es preferida en la mayoría de los casos, ya que es más legible y flexible al permitir la inclusión de expresiones directamente en la cadena. Es importante destacar que la interpolacion con plantillas literales solo funciona con comillas invertidas y no con comillas simples o dobles.
+
 # Operadores en JavaScript
 
 ---
 
 <details>
-<summary> <b>Operadores Aritmeticos:</b> </summary>
+<summary> <h3>Operadores Aritmeticos:</h3> </summary>
 <p>
 Los operadores aritmeticos toman valores numericos (ya sena literales o variables) como sus operados y retornan un valor numerico unico.
 
@@ -185,7 +213,7 @@ Los operadores aritmeticos toman valores numericos (ya sena literales o variable
 * **Pre-Decremento ``--a``** -->
 
 <details>
-<summary><b> Operadores de Asignacion:</b></summary>
+<summary><h3> Operadores de Asignacion:</h3></summary>
 
 <p>
 Un operador de asignacion asigna un valor al operado de la izquierda basado en el valor del operando de la derecha.
@@ -219,7 +247,7 @@ Un operador de asignacion asigna un valor al operado de la izquierda basado en e
 * **Asignación de Resíduo ``x %= y``** -->
 
 <details>
-<summary><b>Operadores de Comparacion:</b></summary>
+<summary><h3>Operadores de Comparacion:</h3></summary>
 <p>
 Los operadores de comparación comparan dos expresiones y devuelven un valor **Boolean** que representa la relación de sus valores.
 
@@ -248,7 +276,7 @@ Los operadores de comparación comparan dos expresiones y devuelven un valor **B
 
 
 <details>
-<summary> <b>Operadores Lógicos:</b> </summary>
+<summary> <h3>Operadores Lógicos:</h3> </summary>
 <p>
 
 Los operadores lógicos nos devuelven un resultado a partir de que se cumpla o no una **condición**, su resultado es **Booleano**, y sus operadores son valores lógicos o asimilables a ellos.
@@ -396,7 +424,6 @@ Los operadores lógicos nos devuelven un resultado a partir de que se cumpla o n
      * En el caso de que la función tenga 2 ó más parámetros, se indican entre paréntesis: (a, b) =>.
      * Si queremos devolver un objeto, que coincide con la sintaxis de las llaves, se puede englobar con paréntesis: ({name: 'Manz'}).
      
-     
         ```js
         // Arrow Function Sin Parametros
         const suma = ( ) => (3 + 2);
@@ -429,7 +456,7 @@ Los operadores lógicos nos devuelven un resultado a partir de que se cumpla o n
      Los corchetes especifican un valor de índice correspondiente a su posición del valor que se desea devolver.
 
      <details>
-     <summary><b>Array Methods</b></summary>
+     <summary><h3>Array Methods</h3></summary>
      <p>
      
      ```js
@@ -445,7 +472,7 @@ Los operadores lógicos nos devuelven un resultado a partir de que se cumpla o n
      [3, 5, 6, 8].find((n) => n % 2 === 0) // 6
      [2, 4, 3, 5].findIndex((n) => n % 2 !== 0) // 2
      [3, 4, 8, 6].map((n) => n * 2) // [6, 8, 16, 12]
-     [1, 4, 7, 8].filter((n) => % 2 === 0) // [4, 8]
+     [1, 4, 7, 8].filter((n) => n % 2 === 0) // [4, 8]
      [2, 4, 3, 7].reducer((acc, cur) => acc + cur) // 16
      [2, 3, 4, 5].every((x) => x < 6) // true
      [3, 5, 6, 8].some((n) => n > 6) // true
@@ -512,13 +539,84 @@ La sintaxis de desestructuración es una funcionalidad que vino junto con ES6. E
   console.log(userName, role, height, favColor, hairColor);
   ```
   
-# Condicionales
+
+# Estructuras de control de flujo
+
+## Condicionales
+
+* **Simples**
+
+  ```js
+  if(condicion) // Codigo a ejecutar
+
+  if(condicion) {
+    // Codigo a ejecutar
+  }
+  ```
+
+* **Compuestos**
+
+  ```js
+  if(condicion) {
+    // Codigo a ejecutar
+  } else {
+    // Codigo a ejecutar en caso contrario
+  }
+  ```
+
+* **Multiples**
+
+  ```js
+  if(condicion) {
+    // Codigo a ejecutar
+  } else if(condicion) {
+    // Codigo a ejecutar en un caso
+  } else if(codicion) {
+    // Codigo a ejecutar en un caso
+  } else {
+    // Codigo a ejecutar en caso contrario
+  }
+  ```
+
+## Bucles
+
+* **Determinado**
+* **Indeterminado**
 
 ---
+
+# CallBacks
+
+---
+
+  
+
 
 # Class {}
 
 ---
+
+# BOM
+
+---
+
+El BOM (Browser Object Model) en JavaScript es un conjunto de objetos que proporciona una intefaz para interactuar con el navegador web. El BOM es parte del entorno de ejecución de JavaScript en un navegador y permite acceder y manipular características específicas del navegador, como la ventana del navegador, los frames, los historiales de navegación, las cookies y mas.
+
+Algunos de los objetos más comunes del BOM son:
+
+1. Window: Representa la ventana del navegador y proporciona métodos y propiedades para controlarla. También es el objeto global en JavaScript.
+
+2. Document: Representa el documento HTML cargado en la ventana del navegador y proporciona métodos y propiedades para acceder y manipular los elementos del documento.
+
+3. Navigator: Proporciona información sobre el navegador del usuario, como el nombre, la versión y el agente de usuario.
+
+4. Location: Proporciona información sobre la URL de la página actual y permite redirigir a otras URL.
+
+5. History: Permite acceder y manipular el historial de navegación del usuario.
+
+6. Screen: Proporciona información sobre la pantalla del dispositivo del usuario, como el tamaño y la resolución.
+
+
 
 # DOM
 
