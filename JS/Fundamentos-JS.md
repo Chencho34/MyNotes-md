@@ -617,6 +617,217 @@ Algunos de los objetos más comunes del BOM son:
 6. Screen: Proporciona información sobre la pantalla del dispositivo del usuario, como el tamaño y la resolución.
 
 
+# Solicitudes HTTP (Fetch)
+
+El método fetch() en JavaScript se utiliza para hacer solicitudes HTTP a recursos como servidores, archivos o APIs. Es una API moderna basada en Promesas, lo que facilita trabajar con operaciones asíncronas. 
+
+## Metodo GET
+
+```JS
+const getUsers = async () => {
+  try {
+    // Realiza una solicitud GET al servidor
+    const response = await fetch('http://localhost:3000/users');
+    
+    // Convierte la respuesta a formato JSON
+    const data = await response.json();
+    
+    // datos obtenidos
+    console.log(data);
+  } catch (error) {
+    // Maneja cualquier error que ocurra durante la solicitud
+    console.log('Error:', error);
+  } finally {
+    // Esta sección se ejecuta siempre, independientemente de si la solicitud fue exitosa o falló
+    console.log('Solicitud GET completada');
+  }
+}
+
+```
+
+## Metodo POST
+
+```JS
+const createUser = async () => {
+  const userData = {
+    name: 'Jane Doe',
+    email: 'jane@example.com',
+  };
+
+  try {
+    // Realiza una solicitud POST al servidor para crear un nuevo usuario
+    const response = await fetch('http://localhost:3000/users', {
+      method: 'POST', // Especifica el método HTTP como POST
+      headers: {
+        'Content-Type': 'application/json', // Especifica que el cuerpo de la solicitud es JSON
+      },
+      body: JSON.stringify(userData), // Convierte los datos del usuario a una cadena JSON
+    });
+    
+    // Convierte la respuesta a formato JSON
+    const data = await response.json();
+    
+    // Datos obtenidos
+    console.log('Usuario creado:', data);
+  } catch (error) {
+    // Maneja cualquier error que ocurra durante la solicitud
+    console.log('Error:', error);
+  } finally {
+    // Esta sección se ejecuta siempre, independientemente de si la solicitud fue exitosa o falló
+    console.log('Solicitud POST completada');
+  }
+}
+
+```
+
+## Metodo DELETE
+
+```JS
+const deleteUser = async (userId) => {
+  try {
+    // Realiza una solicitud DELETE al servidor para eliminar un usuario específico
+    await fetch(`http://localhost:3000/users/${userId}`, {
+      method: 'DELETE', // Especifica el método HTTP como DELETE
+    });
+        
+  } catch (error) {
+    // Maneja cualquier error que ocurra durante la solicitud
+    console.log('Error:', error);
+  } finally {
+    // Esta sección se ejecuta siempre, independientemente de si la solicitud fue exitosa o falló
+    console.log('Solicitud DELETE completada');
+  }
+}
+
+```
+
+# Solicitudes HTTP (Axios)
+
+Axios es una librería JavaScript que puede ejecutarse en el navegador y que nos permite hacer sencillas las operaciones como cliente HTTP, por lo que podremos configurar y realizar solicitudes a un servidor y recibiremos respuestas fáciles de procesar.
+
+## Metodo GET con Axios
+
+GET: Se utiliza para obtener datos del servidor. No lleva cuerpo de solicitud y obtiene la respuesta en response.data.
+
+```js
+const getUsers = async () => {
+  try {
+    // Solicitud GET al servidor 
+    const response = await axios.get('http://localhost:3000/users');
+    
+    // Accede a los datos de la respuesta
+    const data = response.data;
+    
+    // Datos obtenidos
+    console.log(data);
+  } catch (error) {
+    // Maneja cualquier error que ocurra durante la solicitud
+    console.log('Error:', error.message);
+  } finally {
+    // Esta sección se ejecuta siempre, independientemente de si la solicitud fue exitosa o falló
+    console.log('Solicitud GET completada');
+  }
+}
+
+```
+
+
+## Metodo POST con Axios
+
+POST: Se utiliza para enviar datos al servidor para crear un recurso. Lleva un cuerpo de solicitud con los datos que se están enviando.
+
+```JS
+const createUser = async () => {
+  // Datos a enviar al servidor
+  const userData = {
+    name: 'Jane Doe',
+    email: 'jane@example.com',
+  };
+
+  try {
+    // Realiza una solicitud POST al servidor para crear un nuevo usuario
+    const response = await axios.post('http://localhost:3000/users', userData);
+    
+    // Datos de la respuesta
+    const data = response.data;
+    
+    // Datos obtenidos
+    console.log('Usuario creado:', data);
+  } catch (error) {
+    // Maneja cualquier error que ocurra durante la solicitud
+    console.log('Error:', error.message);
+  } finally {
+    // Esta sección se ejecuta siempre, independientemente de si la solicitud fue exitosa o falló
+    console.log('Solicitud POST completada');
+  }
+}
+
+```
+
+## Metodo DELETE con Axios 
+
+DELETE: Se utiliza para eliminar un recurso del servidor. Usa el ID del recurso en la URL y no suele llevar cuerpo de solicitud.
+
+```js
+const deleteUser = async (userId) => {
+  try {
+    // Realiza una solicitud DELETE al servidor para eliminar un usuario específico
+    const response = await axios.delete(`http://localhost:3000/users/${userId}`);
+    
+    // Datos de la respuesta
+    const data = response.data;
+    
+    // Datos obtenidos 
+    console.log('Usuario eliminado:', data);
+  } catch (error) {
+    // Maneja cualquier error que ocurra durante la solicitud
+    console.log('Error:', error.message);
+  } finally {
+    // Esta sección se ejecuta siempre, independientemente de si la solicitud fue exitosa o falló
+    console.log('Solicitud DELETE completada');
+  }
+}
+
+
+```
+
+## Metodo PUT con Axios
+
+PUT: Se utiliza para actualizar un recurso existente en el servidor. Específicamente, en este ejemplo, actualiza un usuario en la base de datos usando su userId y los datos nuevos proporcionados en updatedData.
+
+```js
+const updateUser = async (userId, updatedData) => {
+  try {
+    // Realiza una solicitud PUT al servidor para actualizar un usuario específico
+    const response = await axios.put(`http://localhost:3000/users/${userId}`, updatedData);
+    
+    // Datos de la respuesta
+    const data = response.data;
+    
+    // Datos actualizados
+    console.log('Usuario actualizado:', data);
+  } catch (error) {
+    // Maneja cualquier error que ocurra durante la solicitud
+    console.log('Error:', error.message);
+  } finally {
+    // Esta sección se ejecuta siempre, independientemente de si la solicitud fue exitosa o falló
+    console.log('Solicitud PUT completada');
+  }
+}
+
+
+const userId = 123
+const updatedData = {
+  name: 'Jane Doe',
+  email: 'jane.doe@newexample.com',
+};
+
+updateUser(userId, updatedData)
+```
+
+
+
+
 
 # DOM
 
