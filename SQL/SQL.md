@@ -2,7 +2,7 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
   *{
-    font-family: 'Poppins';
+    font-family: 'arial','Poppins';
     margin: 0;
     padding: 0;
   }
@@ -208,4 +208,16 @@ INNER JOIN profesores ON cursos.id_profesor = profesores.id_profesor
 -- WHERE si se requiere condicionar que fila mostrar
 ```
 
-
+```sql
+create or replace function ingresar_trabaja_en (varchar,integer,numeric) returns integer as $$
+declare 
+	nss_empleado alias for $1;
+	numero_proyecto alias for $2;
+	horas alias for $3;
+	reg record;
+begin
+	insert into trabaja_en values (nss_empleado,numero_proyecto,horas);
+	return 1;
+end;
+$$language plpgsql;
+```
