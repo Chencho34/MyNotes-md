@@ -1,0 +1,24 @@
+# Node.JS
+
+## Que es node 
+
+``Node.js`` es un entorno de ejecución de JavaScript del lado del servidor, construido sobre el motor V8 de Chrome. A diferencia de JavaScript en el navegador, que se usa para crear interfaces y lógica del lado del cliente, ``Node.js permite ejecutar JavaScript en el servidor``, lo que lo en una herramienta ideal para desarrollar apliaciones backend, APIs y mas.
+
+### Caracteristicas clave de Node.js
+
+* ✅ ``Asíncrono y orientado a eventos``: Noje.js maneja múltiples solicitudes al mismo tiempo sin bloquear el hilo principal, gracias a su modelo de I/O no bloqueante.
+
+* ⚙️ ``Basado en el motor V8``: Usa el mismo motor de Chrome para interpretar JavaScript, lo que lo hace rápido y eficiente.
+
+* 📦 ``Gestor de paquetes (npm)``: Viene con ``npm``, el mayor ecosistema de bibliotecas y herramientas de código abierto para JavaScript.
+
+* 🌐 ``Ideal para aplicaciones web``: Muy usado para crear APIs REST, servidores web, aplicaciones en tiempo real como chats o notificaciones, y servicios de microservicios.
+
+## Arquitectura de Node.js y su funcionamiento
+
+Node.js utiliza la arquitectura ``Single Threaded Event Loop`` para manejar múltiples clientes al mismo tiempo.
+
+Varios clientes envían una solicictud y el servidor procesa cada una de ellas antes de devolver la respuesta, se utilizan múltiples hilos para procesar las llamadas concurrentes. Estos hilos se definen en un pool de hilos, y cada vez que llega una petición, se asigna un hilo individual para manejarla.
+
+<img height="" src="https://kinsta.com/wp-content/uploads/2021/03/Nodejs-Architecture.png">
+

@@ -214,7 +214,7 @@ Request → Routes → Controllers → Services → Models (DB) → Response
 
 ## Extras recomendados
 
-eslit:
+### Eslint:
 
 ts standard
 
@@ -226,6 +226,7 @@ agregar script en el package.json
 
 ```bash
 "devDependencies": {
+  ...
 },
 "eslintConfig": {
   "extends": [
@@ -236,3 +237,10 @@ agregar script en el package.json
   }
 }
 ```
+
+### ZOD o JOI
+
+### Sequielize
+
+### swager
+
